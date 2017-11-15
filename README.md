@@ -5,6 +5,11 @@
 
 <br>
 
+## git with others
+
+* [C9.io 연동하기](#C9-연동)
+
+
 ### 팁 툴:
 
 * [git-tip](https://www.npmjs.com/package/git-tip) - 아래에 나열된 팁들을 사용할 수 있는 CLI 툴 ([도커 컨테이너](https://github.com/djoudi5/docker-git-tip))
@@ -1150,4 +1155,25 @@ git status --short --branch
 ## 하루 전의 커밋으로 체크아웃하기
 ```sh
 git checkout master@{yesterday}
+```
+
+## C9 연동
+* C9.io에서 blank workspace 생성
+* git 초기화 및 remote repository 설정
+* `--force`를 이용해 remote repository overwrite
+
+```
+
+bobkim:~/workspace $ git config  --global user.name "espozbob"                                                                                                                                    
+bobkim:~/workspace $ git config  --global user.email "espozbob@gmail.com"                                                                                                                         
+bobkim:~/workspace $ git init
+Initialized empty Git repository in /home/ubuntu/workspace/.git/
+bobkim:~/workspace (master) $ git remote add origin git@github.com:espozbob/espozbob.github.io.git
+bobkim:~/workspace (master) $ git add .
+bobkim:~/workspace (master) $ git commit -m "Initial commit"
+[master (root-commit) 945ae3a] Initial commit
+ 1 file changed, 18 insertions(+)
+ create mode 100644 README.md
+bobkim:~/workspace (master) $ git push --force origin master
+
 ```
